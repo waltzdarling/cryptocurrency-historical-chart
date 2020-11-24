@@ -8,6 +8,8 @@ import dash_html_components as html
 import plotly.graph_objs as go
 from datetime import datetime
 
+from texts import text_data
+
 first_currency = 'BTC'
 second_currency = 'USD'
 
@@ -139,7 +141,7 @@ app.layout = html.Div(
                     className='four columns div-user-controls',
                     children=[
                         html.H2('CRYPTOCURRENCIES HISTORICAL CHART'),
-                        html.P('''Visual cryptocurrency comparison tool that helps to check cryptocurrencies history for the top coins such as BTC and ETH.'''),
+                        html.P(text_data),
                         html.P('''Please choose a currency from the dropdown menu below.''')
                     ]
                 ),  # Define the left element
@@ -178,4 +180,4 @@ def update_first_output(first, second):
     return fig
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=8051)
