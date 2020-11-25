@@ -8,7 +8,7 @@ import dash_html_components as html
 import plotly.graph_objs as go
 from datetime import datetime
 
-from texts import text_data
+from texts import (text_data, text_data_two)
 
 first_currency = 'BTC'
 second_currency = 'USD'
@@ -89,12 +89,12 @@ figure_layout = go.Layout(
     title={'text': 'Cryptocurrencies Historical chart', 'font': {'color': 'white'}, 'x': 0.5},
     xaxis={
         "title": {
-            "text": "time"
+            "text": "Time"
         }
     },
     yaxis={
         "title": {
-            "text": "price"
+            "text": "Price"
         }
     }
 )
@@ -127,6 +127,7 @@ left_side = html.Div(
     children=[
         html.H2('CRYPTOCURRENCIES HISTORICAL CHART'),
         html.P(text_data),
+        html.P(text_data_two),
         html.P('''Please choose a currency from the dropdown menu below.'''),
         dcc.Dropdown(
             id='demo-dropdown-one',

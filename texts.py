@@ -1,2 +1,3 @@
 
 text_data = '''Visual cryptocurrency comparison tool that helps to check cryptocurrencies history for the top coins such as BTC and ETH.'''
+text_data_two = '''Cryptocurrencies use decentralised technology to let users make secure payments and store money without the need to use their name or go through a bank. They run on a distributed public ledger called blockchain, which is a record of all transactions updated and held by currency holders'''
