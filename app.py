@@ -86,7 +86,17 @@ figure_layout = go.Layout(
     margin={'b': 15},
     hovermode='x',
     autosize=True,
-    title={'text': 'Cryptocurrencies Historical chart', 'font': {'color': 'white'}, 'x': 0.5}
+    title={'text': 'Cryptocurrencies Historical chart', 'font': {'color': 'white'}, 'x': 0.5},
+    xaxis={
+        "title": {
+            "text": "time"
+        }
+    },
+    yaxis={
+        "title": {
+            "text": "price"
+        }
+    }
 )
 
 fig = go.Figure(
@@ -108,7 +118,16 @@ current_layout = html.Div(
         dcc.Graph(
             id='example-graph-2',
             figure=fig
-        ),
+        )
+    ]
+)
+
+left_side = html.Div(
+    className='four columns div-user-controls',
+    children=[
+        html.H2('CRYPTOCURRENCIES HISTORICAL CHART'),
+        html.P(text_data),
+        html.P('''Please choose a currency from the dropdown menu below.'''),
         dcc.Dropdown(
             id='demo-dropdown-one',
             options=currencies,
@@ -116,8 +135,6 @@ current_layout = html.Div(
             placeholder="Select a currency",
             searchable = False,
             optionHeight = 35,
-
-
         ),
         dcc.Dropdown(
             id='demo-dropdown-two',
@@ -126,29 +143,22 @@ current_layout = html.Div(
             placeholder="Select a currency",
             searchable = False,
             optionHeight = 35,
-
-
         )
     ]
-)
+)  # Define the left element
+
+right_side = html.Div(
+    className='eight columns div-for-charts bg-grey',
+    children=[current_layout]
+)  # Define the right element
 
 app.layout = html.Div(
     children=[
         html.Div(
             className='row',  # Define the row element
             children=[
-                html.Div(
-                    className='four columns div-user-controls',
-                    children=[
-                        html.H2('CRYPTOCURRENCIES HISTORICAL CHART'),
-                        html.P(text_data),
-                        html.P('''Please choose a currency from the dropdown menu below.''')
-                    ]
-                ),  # Define the left element
-                html.Div(
-                    className='eight columns div-for-charts bg-grey',
-                    children=[current_layout]
-                )  # Define the right element
+                left_side,
+                right_side
             ]
         )
     ]
