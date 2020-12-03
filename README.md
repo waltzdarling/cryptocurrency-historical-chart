@@ -1,4 +1,4 @@
-# Dash Web Trader
+# Cryptocurrency historical chart
 This is a demo of the Dash interactive Python framework developed by [Plotly](https://plot.ly/).
                             
 This app continually queries csv files and updates Ask and Bid prices for major currency 
